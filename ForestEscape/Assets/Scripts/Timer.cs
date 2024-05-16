@@ -7,20 +7,23 @@ public class Timer : MonoBehaviour
 {
     public TMP_Text timeText;
     [SerializeField] private GameObject timePopUp;
-    private float fTimer = 10f;
+    private float fTimer = 60f;
     private float fGoalTime = 0f;
+
+    bool temp = true;
 
     void Start()
     {
         timePopUp.SetActive(false);
-        timeText.text = "10";
+        timeText.text = "60";
     }
 
     void Update()
     {
-        if(fGoalTime >= fTimer)
+        if(fGoalTime >= fTimer && temp)
         {
             timePopUp.SetActive(true);
+            temp = false;
         }
         else
         {

@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     }
 
     [SerializeField] private GameObject[] playerAnims;
+    [SerializeField] private GameObject testBall;
     [SerializeField] private CharacterController controller;
     private PLAYERANIM eCurAnim = PLAYERANIM.IDLE;
     private float dMoveSpeed = 3f;
@@ -29,22 +30,22 @@ public class Player : MonoBehaviour
         {
             ChangeMotion(PLAYERANIM.RUNNING);
             controller.Move(new Vector3(0, 0, -dMoveSpeed * Time.deltaTime));
-        }
-     
-        if (Input.GetKey(KeyCode.S))
-        {
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
             ChangeMotion(PLAYERANIM.RUNNING);
             controller.Move(new Vector3(0, 0, dMoveSpeed * Time.deltaTime));
         }
 
-        if (Input.GetKey(KeyCode.A))
-        {
+        if (Input.GetKey(KeyCode.A))
+        {
             ChangeMotion(PLAYERANIM.RUNNING);
             controller.Move(new Vector3(dMoveSpeed * Time.deltaTime, 0, 0));
         }
 
-        if (Input.GetKey(KeyCode.D))
-        {
+        if (Input.GetKey(KeyCode.D))
+        {
             ChangeMotion(PLAYERANIM.RUNNING);
             controller.Move(new Vector3(-dMoveSpeed * Time.deltaTime, 0, 0));
         }
@@ -53,8 +54,15 @@ public class Player : MonoBehaviour
         {
             ChangeMotion(PLAYERANIM.BATTING);
         }
-
-        if(!Input.anyKey)
+        if (Input.GetMouseButtonDown(1))
+        {
+            Instantiate(testBall);
+            testBall.SetActive(true);
+            Vector3 ballPos = transform.position + new Vector3(-3, 5f, -5f);
+            testBall.GetComponent<Ball>().SetPosition(ballPos);
+            testBall.GetComponent<Ball>().ThrowBall();
+        }
+        if (!Input.anyKey)
         {
             ChangeMotion(PLAYERANIM.IDLE);
         }

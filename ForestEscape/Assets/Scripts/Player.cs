@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    enum PLAYERANIM
+    public enum PLAYERANIM
     {
         IDLE,
         RUNNING,
         BATTING,
-        DISAPPOINT
+        DISAPPOINT,
+        HAPPY
     }
 
     [SerializeField] private GameObject[] playerAnims;
-    [SerializeField] private GameObject testBall;
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform bat;
 
     private PLAYERANIM eCurAnim = PLAYERANIM.IDLE;
-    private float dMoveSpeed = 3f;
     private Vector3 velocity;
     public float speed = 5f;
     public float gravity = -9.81f;
@@ -34,7 +33,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         ChangeMotion(PLAYERANIM.IDLE);
-        //transform.rotation = Quaternion.Euler(0f, 135f, 0f);
         Vector3 moveDirection = transform.forward;
         rotationY = initialRotationY;
         transform.localRotation = Quaternion.Euler(0f, rotationY, 0f);
@@ -42,19 +40,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        /*
-        if (Input.GetMouseButtonDown(0))
-        {
-            ChangeMotion(PLAYERANIM.BATTING);
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            Instantiate(testBall);
-            testBall.SetActive(true);
-            Vector3 ballPos = transform.position + new Vector3(-3, 5f, -5f);
-            testBall.GetComponent<Ball>().SetPosition(ballPos);
-            testBall.GetComponent<Ball>().ThrowBall();
-        }*/
         if(!isCombat)
         {
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -105,7 +90,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void ChangeMotion(PLAYERANIM eState)
+    public void ChangeMotion(PLAYERANIM eState)
     {
         if(eCurAnim == PLAYERANIM.RUNNING && eState == PLAYERANIM.RUNNING)
             return;
@@ -113,7 +98,7 @@ public class Player : MonoBehaviour
         playerAnims[(int)PLAYERANIM.IDLE].SetActive(false);
         playerAnims[(int)PLAYERANIM.BATTING].SetActive(false);
         playerAnims[(int)PLAYERANIM.RUNNING].SetActive(false);
-        //playerAnims[(int)PLAYERANIM.DISAPPOINT].SetActive(false);
+        playerAnims[(int)PLAYERANIM.DISAPPOINT].SetActive(false);
 
         switch (eState)
         {
@@ -127,20 +112,23 @@ public class Player : MonoBehaviour
                 playerAnims[(int)PLAYERANIM.BATTING].SetActive(true);
                 break;
             case PLAYERANIM.DISAPPOINT:
-                //playerAnims[(int)PLAYERANIM.DISAPPOINT].SetActive(true);
+                playerAnims[(int)PLAYERANIM.DISAPPOINT].SetActive(true);
+                break;
+            case PLAYERANIM.HAPPY:
+                playerAnims[(int)PLAYERANIM.HAPPY].SetActive(true);
                 break;
         }
 
         eCurAnim = eState;
     }
 
-    public void ReadyCombat()
+    public void DisableControl()
     {
         isCombat = true;
         ChangeMotion(PLAYERANIM.IDLE);
     }
 
-    public void EndCombat()
+    public void EnableControl()
     {
         isCombat = false;
         ChangeMotion(PLAYERANIM.IDLE);
@@ -149,5 +137,13 @@ public class Player : MonoBehaviour
     public Vector3 GetBatPosition()
     {
         return bat.position;
+    }
+
+    public void SetPosition(Vector3 pos, Quaternion rot)
+    {
+        controller.enabled = false;
+        transform.position = pos;
+        transform.rotation = rot;
+        controller.enabled = true;
     }
 }

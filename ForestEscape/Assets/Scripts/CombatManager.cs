@@ -6,7 +6,8 @@ using TMPro;
 public enum MONSTER_ID
 {
     COMBAT_BEE,
-    COMBAT_SLIME
+    COMBAT_SLIME,
+    COMBAT_END
 }
 
 public class CombatManager : MonoBehaviour
@@ -97,7 +98,6 @@ public class CombatManager : MonoBehaviour
     {
         curCombat = combatInfo;
         endPoint = pos;
-        Debug.Log(pos);
         startPoint = endPoint + fowardVec * 8f;
         monsterPos = pos + fowardVec * 1.1f;
         monsterPos.y += 0.3f;
@@ -108,7 +108,7 @@ public class CombatManager : MonoBehaviour
         bat.SetTartget(newTarget);
 
         ballThrowUI.SetActive(true);
-        player.ReadyCombat();
+        player.DisableControl();
     }
 
     public void BallStart()
@@ -125,7 +125,7 @@ public class CombatManager : MonoBehaviour
         {
             // 전투 끝남
             Debug.Log("End Game");
-            player.EndCombat();
+            player.EnableControl();
         }
         else
         {

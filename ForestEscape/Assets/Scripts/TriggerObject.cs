@@ -17,8 +17,13 @@ public class TriggerObject : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            CombatManager.Instance.CombatStart(combatInfo, other.gameObject.GetComponent<Player>().GetBatPosition(), other.transform.forward);
-            Destroy(gameObject);
+            if (MONSTER_ID.COMBAT_END == combatInfo.monsterID)
+                GameManager.Instance.GameClear();
+            else
+            {
+                CombatManager.Instance.CombatStart(combatInfo, other.gameObject.GetComponent<Player>().GetBatPosition(), other.transform.forward);
+                Destroy(gameObject);
+            }
         }
     }
 }

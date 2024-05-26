@@ -63,7 +63,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\MainCamera.cs" />
     <Compile Include="Assets\Scripts\TriggerObject.cs" />
-    <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\Scripts\Ball.cs" />
     <Compile Include="Assets\Scripts\Bat.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />

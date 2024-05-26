@@ -14243,13 +14243,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860805384}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.24069229, y: -0.9265843, z: 0.26135418, w: -0.12329927}
-  m_LocalPosition: {x: 362.96, y: 43.15, z: 808.63}
+  m_LocalRotation: {x: 0.068813026, y: -0.94743216, z: 0.2763321, w: 0.14586863}
+  m_LocalPosition: {x: 368.1, y: 40.2, z: 803.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2079483091}
-  m_LocalEulerAnglesHint: {x: 32.935, y: -187.027, z: 27.043}
+  m_LocalEulerAnglesHint: {x: 32.935, y: -163.5, z: -3.4}
 --- !u!81 &860805388
 AudioListener:
   m_ObjectHideFlags: 0
@@ -17064,7 +17064,7 @@ Transform:
   m_GameObject: {fileID: 1004248472}
   serializedVersion: 2
   m_LocalRotation: {x: 0.024515247, y: -0.9991745, z: -0.032386556, w: 0.0007946205}
-  m_LocalPosition: {x: -0.287, y: 1.286, z: 0.556}
+  m_LocalPosition: {x: -0.263, y: 1.54, z: 1.361}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26999,6 +26999,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1547439349}
   - component: {fileID: 1547439350}
+  - component: {fileID: 1547439351}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Bat
@@ -27044,7 +27045,24 @@ CapsuleCollider:
   m_Radius: 0.07
   m_Height: 0.67
   m_Direction: 1
-  m_Center: {x: -0.55, y: 1.77, z: -0.08}
+  m_Center: {x: -0.54, y: 1.77, z: -0.04}
+--- !u!114 &1547439351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547439348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e150528ec94754c83cf125e2add69d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitForce: 30
+  baseHitForce: 10
+  additionalForceFactor: 1.5
+  centerBiasFactor: 0.5
+  target: {x: 0, y: 0, z: 0}
 --- !u!1 &1554720645
 GameObject:
   m_ObjectHideFlags: 0
@@ -27660,9 +27678,10 @@ MonoBehaviour:
   player: {fileID: 375284527}
   ballThrowUI: {fileID: 1031089783}
   ballTimerText: {fileID: 369144452}
+  bat: {fileID: 1547439351}
   startPoint: {x: 0, y: 0, z: 0}
   endPoint: {x: 0, y: 0, z: 0}
-  travelTime: 2
+  travelTime: 1.6
   ballPrefab: {fileID: 5776057884130855107, guid: a186761501906e34b90c1251c2cf5a98, type: 3}
 --- !u!4 &1593480212
 Transform:
@@ -36036,7 +36055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2115724622
 MonoBehaviour:
   m_ObjectHideFlags: 0

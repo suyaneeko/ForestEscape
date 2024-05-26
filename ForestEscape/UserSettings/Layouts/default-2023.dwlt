@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Project
   m_RootView: {fileID: 9}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 28
+  controlID: 81
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 110
+  controlID: 141
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 109
+  controlID: 140
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 0
-  controlID: 27
+  controlID: 80
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -446,7 +446,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Assets/Player
+    - Assets/Assets/Monsters/Bee Cute Series/Prefabs
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -456,30 +456,30 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Assets/Player
+  - Assets/Assets/Monsters/Bee Cute Series/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Git_Clone\ForestEscape\ForestEscape
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 164}
-    m_SelectedIDs: 2c9d0000
-    m_LastClickedID: 40236
-    m_ExpandedIDs: 00000000229d0000249d0000269d0000289d00002a9d00002c9d00009e9d0000a29d0000aa9d00000cbe0b00
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: c63e0c00
+    m_LastClickedID: 802502
+    m_ExpandedIDs: 00000000da9e0000dc9e0000e09e0000e29e0000e49e0000e69e0000549f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: FantasyForest
+      m_OriginalName: FantasyForest
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 40786
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 2}
@@ -494,7 +494,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000229d0000249d0000269d0000289d00002a9d00002c9d0000
+    m_ExpandedIDs: 00000000da9e0000dc9e0000de9e0000e09e0000e29e0000e49e0000e69e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -540,7 +540,7 @@ MonoBehaviour:
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
-      m_ClientGUIView: {fileID: 2}
+      m_ClientGUIView: {fileID: 0}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -639,10 +639,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
+      scrollPos: {x: 0, y: 2608}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: f0e7fffff4e7fffff8e7fffffce7ffff40e8ffff44e8ffff70e8ffff74e8ffff78e8ffffbeeeffff0afbffff
+      m_ExpandedIDs: d2c8ffffd6c8ffffdac8ffffdec8ffff22c9ffff26c9ffff52c9ffff56c9ffff5ac9fffff4d8ffff08e5ffffcefaffff1e780000cc780000e87e0000b87f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -659,7 +659,7 @@ MonoBehaviour:
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
-        m_ClientGUIView: {fileID: 0}
+        m_ClientGUIView: {fileID: 6}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1120,9 +1120,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 402.39233, y: 5.3532324, z: 746.25385}
+    m_Target: {x: 400.8286, y: 4.931286, z: 746.9953}
     speed: 2
-    m_Value: {x: 402.39233, y: 5.3532324, z: 746.25385}
+    m_Value: {x: 400.8286, y: 4.931286, z: 746.9953}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1168,13 +1168,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.0043701464, y: -0.9901822, z: 0.13782671, w: 0.029103216}
+    m_Target: {x: -0.029593553, y: -0.96566117, z: 0.22443324, w: -0.12885642}
     speed: 2
-    m_Value: {x: 0.0043694405, y: -0.9900223, z: 0.13780445, w: 0.029098516}
+    m_Value: {x: -0.029588355, y: -0.96549153, z: 0.22439381, w: -0.12883379}
   m_Size:
-    m_Target: 2.097616
+    m_Target: 2.1691377
     speed: 2
-    m_Value: 2.097616
+    m_Value: 2.1691377
   m_Ortho:
     m_Target: 0
     speed: 2

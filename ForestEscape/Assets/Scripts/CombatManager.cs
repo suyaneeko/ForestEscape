@@ -10,6 +10,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private GameObject ballThrowUI;
     [SerializeField] private TextMeshProUGUI ballTimerText;
+    [SerializeField] private Bat bat;
 
     public Vector3 startPoint; // 시작점
     public Vector3 endPoint; // 끝점
@@ -63,6 +64,11 @@ public class CombatManager : MonoBehaviour
                 PrepareBall();
             }
         }
+        if(Input.GetMouseButtonDown(1))
+        {
+            BallStart();
+
+        }
     }
 
     private void PrepareBall()
@@ -102,8 +108,14 @@ public class CombatManager : MonoBehaviour
         endPoint = pos;
         Debug.Log(pos);
         startPoint = endPoint + fowardVec * 8f;
+        Vector3 monsterPos = pos + fowardVec * 1.1f;
+        monsterPos.y += 0.3f;
 
-        Instantiate(monsters[combatNum], pos, Quaternion.identity);
+        Instantiate(monsters[combatNum], monsterPos, Quaternion.identity);
+        Vector3 newTarget = pos + fowardVec * 2f;
+        newTarget.y += 1f;
+        bat.SetTartget(newTarget);
+
         ballThrowUI.SetActive(true);
         player.ReadyCombat();
     }

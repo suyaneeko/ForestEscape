@@ -34,6 +34,7 @@ public class Ball : MonoBehaviour
             if (elapsedTime >= travelTime)
             {
                 firstThrow = false;
+                GetComponent<Rigidbody>().useGravity = true;
             }
         }
 
@@ -87,14 +88,19 @@ public class Ball : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        collided = true;
-        // 충돌된 오브젝트가 야구배트 또는 충격 오브젝트인지 확인
-        if (collision.gameObject.CompareTag("Bat"))
+        if(collision.gameObject.CompareTag("Monster"))
         {
-            Debug.Log("Collide with bat");
-            // 충돌 시 힘을 가해서 날아가는 효과
-            rb.AddForce((collision.contacts[0].point - transform.position).normalized * 500f);
+            Debug.Log("Collide with Monster");
         }
+        // 충돌된 오브젝트가 야구배트 또는 충격 오브젝트인지 확인
+        //if (collision.gameObject.CompareTag("Bat"))
+        //{
+        //    collided = true;
+
+        //    Debug.Log("Collide with bat");
+        //    // 충돌 시 힘을 가해서 날아가는 효과
+        //    rb.AddForce((collision.contacts[0].point - transform.position).normalized * 500f);
+        //}
 
         /*
          if (!collided)
@@ -106,11 +112,11 @@ public class Ball : MonoBehaviour
 
     void OnCollisionExit(Collision collision)
     {
-        if (collided)
-        {
-            collided = false;
-            // 공이 충돌이 끝났을 때 클릭을 감지하여 추가적인 동작을 수행할 수 있습니다.
-        }
+        //if (collided)
+        //{
+        //    collided = false;
+        //    // 공이 충돌이 끝났을 때 클릭을 감지하여 추가적인 동작을 수행할 수 있습니다.
+        //}
     }
 
     private float CalculateForce(float clickDuration, float collisionDuration)

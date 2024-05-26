@@ -15,4 +15,13 @@ public class Monster : MonoBehaviour
     {
         
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            Debug.Log("Collide with Ball. I'm dead");
+            Destroy(gameObject);
+        }
+    }
 }

@@ -3,29 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum MONSTER_ID
+{
+    COMBAT_BEE,
+    COMBAT_SLIME
+}
+
 public class CombatManager : MonoBehaviour
 {
     private static CombatManager instance = null;
+
     [SerializeField] private Monster[] monsters;
     [SerializeField] private Player player;
+    [SerializeField] private GameObject ballPrefab;
     [SerializeField] private GameObject ballThrowUI;
     [SerializeField] private TextMeshProUGUI ballTimerText;
     [SerializeField] private Bat bat;
 
-    public Vector3 startPoint; // 시작점
-    public Vector3 endPoint; // 끝점
-    public float travelTime = 1.7f; // 걸리는 시간
-    public GameObject ballPrefab; // 생성할 공 프리팹
+    public Vector3 startPoint;
+    public Vector3 endPoint;
+    public float travelTime = 1.7f;
 
     private Vector3 controlPoint1;
     private Vector3 controlPoint2;
     private float ballThrowTimer = 0f;
-
-    enum COMBAT_ID
-    {
-        COMBAT_BEE,
-        COMBAT_SLIME
-    }
+    private CombatInfo curCombat;
+    private Vector3 monsterPos;
 
     void Awake()
     {
@@ -67,13 +70,12 @@ public class CombatManager : MonoBehaviour
         if(Input.GetMouseButtonDown(1))
         {
             BallStart();
-
         }
     }
 
     private void PrepareBall()
     {
-        // 컨트롤 포인트 설정
+        // 베지어 곡선 컨트롤 포인트 설정
         controlPoint1 = startPoint + (endPoint - startPoint) * 0.5f + Vector3.up * 2f; ;
         controlPoint2 = startPoint + (endPoint - startPoint) * 0.75f + Vector3.up * 4f;
 
@@ -91,27 +93,16 @@ public class CombatManager : MonoBehaviour
         }
     }
 
-    void StartCombat(COMBAT_ID eID)
+    public void CombatStart(CombatInfo combatInfo, Vector3 pos, Vector3 fowardVec)
     {
-        switch(eID)
-        {
-            case COMBAT_ID.COMBAT_BEE:
-                break;
-            case COMBAT_ID.COMBAT_SLIME:
-                break;
-        }
-    }
-
-    public void CombatStart(int combatNum, Vector3 pos, Vector3 fowardVec)
-    {
-        //endPoint = pos + new Vector3(0f, 2.15f, 0.7f);
+        curCombat = combatInfo;
         endPoint = pos;
         Debug.Log(pos);
         startPoint = endPoint + fowardVec * 8f;
-        Vector3 monsterPos = pos + fowardVec * 1.1f;
+        monsterPos = pos + fowardVec * 1.1f;
         monsterPos.y += 0.3f;
 
-        Instantiate(monsters[combatNum], monsterPos, Quaternion.identity);
+        Instantiate(monsters[(int)combatInfo.monsterID], monsterPos, Quaternion.identity);
         Vector3 newTarget = pos + fowardVec * 2f;
         newTarget.y += 1f;
         bat.SetTartget(newTarget);
@@ -125,5 +116,32 @@ public class CombatManager : MonoBehaviour
         ballThrowUI.SetActive(false);
         ballTimerText.gameObject.SetActive(true);
         ballThrowTimer = 3f;
+    }
+
+    public void CheckCombat(uint deadNum)
+    {
+        curCombat.monsterNum -= deadNum;
+        if (curCombat.monsterNum == 0)
+        {
+            // 전투 끝남
+            Debug.Log("End Game");
+            player.EndCombat();
+        }
+        else
+        {
+            if (deadNum > 0)
+            {
+                StartCoroutine(MonsterDelay());
+            }
+            else
+                BallStart();
+        }
+    }
+
+    IEnumerator MonsterDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        Instantiate(monsters[(int)curCombat.monsterID], monsterPos, Quaternion.identity);
+        BallStart();
     }
 }

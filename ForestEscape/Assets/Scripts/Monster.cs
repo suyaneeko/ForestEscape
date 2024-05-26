@@ -20,7 +20,7 @@ public class Monster : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            Debug.Log("Collide with Ball. I'm dead");
+            CombatManager.Instance.CheckCombat(1);
             Destroy(gameObject);
         }
     }

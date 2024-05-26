@@ -8,6 +8,7 @@ TagManager:
   - Bat
   - Combat
   - Monster
+  - Terrain
   layers:
   - Default
   - TransparentFX

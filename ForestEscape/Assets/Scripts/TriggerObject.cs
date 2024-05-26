@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public struct CombatInfo
+{
+    public uint combatID;
+    public uint monsterNum;
+    public MONSTER_ID monsterID;
+}
+
 public class TriggerObject : MonoBehaviour
 {
-    [SerializeField] private int combatNum;
+    [SerializeField] CombatInfo combatInfo;
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Collide with Player");
-            
-            CombatManager.Instance.CombatStart(combatNum, other.gameObject.GetComponent<Player>().GetBatPosition(), other.transform.forward);
-            //Destroy(gameObject);
+            CombatManager.Instance.CombatStart(combatInfo, other.gameObject.GetComponent<Player>().GetBatPosition(), other.transform.forward);
+            Destroy(gameObject);
         }
     }
 }

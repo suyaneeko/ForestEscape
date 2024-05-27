@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638464284900000000
-    m_Hash: 347211050
+      ticks: 638524075780000000
+    m_Hash: 3425421491
   m_LockFileStatus:
     m_FilePath: D:/Git_Clone/ForestEscape/ForestEscape/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638464285100000000
-    m_Hash: 2203155602
+      ticks: 638524075780000000
+    m_Hash: 2977722786
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -284,6 +284,133 @@ m_ResolvedPackages:
   upmReserved: '{"quickstart":"https://docs.unity3d.com/2021.2/Documentation/Manual/DeveloperToolsFeature.html"}'
   assetStore:
     productId: 
+- packageId: com.unity.recorder@5.0.0
+  testable: 0
+  isDirectDependency: 1
+  version: 5.0.0
+  source: 1
+  resolvedPath: D:\Git_Clone\ForestEscape\ForestEscape\Library\PackageCache\com.unity.recorder@5.0.0
+  assetPath: Packages/com.unity.recorder
+  name: com.unity.recorder
+  displayName: Recorder
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: assets
+  description: 'The Recorder allows you to capture and save data from the Unity Editor
+    during Play mode: animations, videos, images, audio, and more.'
+  errors: []
+  versions:
+    all:
+    - 2.0.0-preview.6
+    - 2.0.1-preview.1
+    - 2.0.2-preview.3
+    - 2.0.3-preview.1
+    - 2.1.0-preview.1
+    - 2.2.0-preview.4
+    - 2.3.0-preview.3
+    - 2.4.0-preview.1
+    - 2.5.0-pre.1
+    - 2.5.2
+    - 2.5.4
+    - 2.5.5
+    - 2.5.7
+    - 2.6.0-exp.3
+    - 2.6.0-exp.4
+    - 3.0.0-pre.1
+    - 3.0.0-pre.2
+    - 3.0.0
+    - 3.0.1
+    - 3.0.2
+    - 3.0.3
+    - 4.0.0-pre.1
+    - 4.0.0-pre.2
+    - 4.0.0-pre.3
+    - 4.0.0-pre.4
+    - 4.0.0-pre.5
+    - 4.0.0
+    - 4.0.1
+    - 4.0.2
+    - 5.0.0-pre.1
+    - 5.0.0
+    - 5.1.0-pre.1
+    - 5.1.0
+    compatible:
+    - 5.0.0
+    - 5.1.0-pre.1
+    - 5.1.0
+    recommended: 5.0.0
+    deprecated: []
+  dependencies:
+  - name: com.unity.timeline
+    version: 1.0.0
+  resolvedDependencies:
+  - name: com.unity.timeline
+    version: 1.8.6
+  - name: com.unity.modules.director
+    version: 1.0.0
+  - name: com.unity.modules.audio
+    version: 1.0.0
+  - name: com.unity.modules.animation
+    version: 1.0.0
+  - name: com.unity.modules.particlesystem
+    version: 1.0.0
+  keywords:
+  - unity
+  - recorder
+  - recording
+  - capture
+  - video
+  - animation
+  - clip
+  - images
+  - render
+  - pass
+  - layer
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  entitlements:
+    licensingModel: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 638320170720000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.recorder@5.0/manual/index.html
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.recorder.git
+    revision: cd750a66bf75ef56d93106b65f5ff599a8eb0016
+    path: 
+  unityLifecycle:
+    version: 5.0.0
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: '{"changelog":"### Added\n- Tutorial in documentation to set up a
+    Unity project with API scripting for starting recordings via a command line. 
+    \n\n### Changed\n- Removed resolution automatic rounding to the nearest even
+    number when Movie Recorder uses MP4 codec and \"Match Window Size\" output resolution.\n\n###
+    Fixed\n- Prevent video output from being corrupted when generated via a Recorder
+    Clip run through a Scene loaded in Play mode.\n- Ensure the project uses the
+    right RenderPipeline settings at all time: quality RenderPipeline settings or
+    default RenderPipeline settings.\n- Ensure that the status messages at the bottom
+    of the Recorder window are always readable even if the window is small."}'
+  assetStore:
+    productId: 
 - packageId: com.unity.timeline@1.8.6
   testable: 0
   isDirectDependency: 1
@@ -483,6 +610,7 @@ m_ResolvedPackages:
     - 2.0.0
     - 3.0.0-exp.1
     - 3.0.0-exp.3
+    - 3.0.0-exp.4
     compatible:
     - 2.0.0
     - 3.0.0-exp.1
@@ -593,11 +721,13 @@ m_ResolvedPackages:
     - 1.9.0
     - 1.9.1
     - 1.9.2
+    - 1.9.4
     compatible:
     - 1.8.0
     - 1.9.0
     - 1.9.1
     - 1.9.2
+    - 1.9.4
     recommended: 1.8.0
     deprecated:
     - 1.8.0-pre.1
@@ -3330,6 +3460,7 @@ m_ResolvedPackages:
     - 1.4.1
     - 1.4.2
     - 1.4.3
+    - 1.4.4
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -3340,6 +3471,7 @@ m_ResolvedPackages:
     - 1.4.1
     - 1.4.2
     - 1.4.3
+    - 1.4.4
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12

@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
 
             controller.Move(velocity * Time.deltaTime); // Gravity
 
-            if (x == 0 && z == 0 && isGrounded)
+            if (x == 0 && z == 0)
             {
                 velocity.x = 0;
                 velocity.z = 0;

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    private Vector3 controlPoint1; // 제어점 1
-    private Vector3 controlPoint2; // 제어점 2
-    private Vector3 targetPosition; // 목표 위치
-    private float travelTime; // 이동 시간
-    private float elapsedTime = 0f; // 경과 시간
+    private Vector3 controlPoint1; 
+    private Vector3 controlPoint2; 
+    private Vector3 targetPosition; 
+    private float travelTime; 
+    private float elapsedTime = 0f; 
     private Rigidbody rb;
     private bool firstThrow = true;
     private float dieTimer = 0f;

@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TMP_Text timeText;
     [SerializeField] private GameObject timePopUp;
-    [SerializeField] private GameObject ClearPopUp;
+    [SerializeField] private GameObject clearPopUp;
     [SerializeField] private GameObject player;
     [SerializeField] private MainCamera camera;
     [SerializeField] private float goalTime = 60f;
@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         timePopUp.SetActive(false);
         timeText.text = goalTime.ToString();
         initPlayerPos = player.transform.position;
@@ -55,6 +57,9 @@ public class GameManager : MonoBehaviour
     {
         if (goalTime <= timer && timeCheck)
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
             timePopUp.SetActive(true);
             timeCheck = false;
             timeText.gameObject.SetActive(false);
@@ -74,8 +79,11 @@ public class GameManager : MonoBehaviour
 
     public void ReStart()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         camera.SetToInitPos();
-        ClearPopUp.SetActive(false);
+        clearPopUp.SetActive(false);
         timeText.gameObject.SetActive(true);
         timePopUp.SetActive(false);
         player.GetComponent<Player>().SetPosition(initPlayerPos, initPlayerRot);
@@ -88,7 +96,10 @@ public class GameManager : MonoBehaviour
 
     public void GameClear()
     {
-        ClearPopUp.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        clearPopUp.SetActive(true);
         timeCheck = false;
         timeText.gameObject.SetActive(false);
         player.GetComponent<Player>().DisableControl();

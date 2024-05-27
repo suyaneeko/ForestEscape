@@ -18,7 +18,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private GameObject ballPrefab;
     [SerializeField] private GameObject ballThrowUI;
-    [SerializeField] private GameObject NoMonsterUI;
+    [SerializeField] private GameObject noMonsterUI;
     [SerializeField] private TextMeshProUGUI ballTimerText;
     [SerializeField] private Bat bat;
 
@@ -115,6 +115,9 @@ public class CombatManager : MonoBehaviour
 
         ballThrowUI.SetActive(true);
         player.DisableControl();
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void BallStart()
@@ -122,6 +125,9 @@ public class CombatManager : MonoBehaviour
         ballThrowUI.SetActive(false);
         ballTimerText.gameObject.SetActive(true);
         ballThrowTimer = 3f;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void CheckCombat(uint deadNum)
@@ -132,7 +138,7 @@ public class CombatManager : MonoBehaviour
             if(deadNum != 0)
             {
                 // 전투 끝남
-                NoMonsterUI.SetActive(true);
+                noMonsterUI.SetActive(true);
                 StartCoroutine(CombatEndDelay());
             }
         }
@@ -158,7 +164,7 @@ public class CombatManager : MonoBehaviour
     IEnumerator CombatEndDelay()
     {
         yield return new WaitForSeconds(1f);
-        NoMonsterUI.SetActive(false);
+        noMonsterUI.SetActive(false);
         player.EnableControl();
     }
 }

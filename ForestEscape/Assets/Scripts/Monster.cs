@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // Cheat key for Test
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            CombatManager.Instance.CheckCombat(1);
+            Destroy(gameObject);
+        }
     }
 
     void OnCollisionEnter(Collision collision)

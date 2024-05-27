@@ -1239,10 +1239,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeText: {fileID: 1527003619}
   timePopUp: {fileID: 550476254}
-  ClearPopUp: {fileID: 448703213}
+  clearPopUp: {fileID: 448703213}
   player: {fileID: 375284525}
   camera: {fileID: 1136385244}
-  goalTime: 300
+  goalTime: 10
 --- !u!4 &59799573
 Transform:
   m_ObjectHideFlags: 0
@@ -17519,7 +17519,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1004248473}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: BatPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27887,7 +27887,7 @@ MonoBehaviour:
   player: {fileID: 375284527}
   ballPrefab: {fileID: 5776057884130855107, guid: a186761501906e34b90c1251c2cf5a98, type: 3}
   ballThrowUI: {fileID: 1031089783}
-  NoMonsterUI: {fileID: 644815843}
+  noMonsterUI: {fileID: 644815843}
   ballTimerText: {fileID: 369144452}
   bat: {fileID: 1547439351}
   startPoint: {x: 0, y: 0, z: 0}
@@ -35159,32 +35159,44 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c7a1bee5b5611264bab2d6b3229737a1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c7a1bee5b5611264bab2d6b3229737a1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c7a1bee5b5611264bab2d6b3229737a1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c7a1bee5b5611264bab2d6b3229737a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.20783022
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c7a1bee5b5611264bab2d6b3229737a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.08899549
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c7a1bee5b5611264bab2d6b3229737a1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.2976523
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c7a1bee5b5611264bab2d6b3229737a1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99497133
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c7a1bee5b5611264bab2d6b3229737a1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.000000007217749
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c7a1bee5b5611264bab2d6b3229737a1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.100159876
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c7a1bee5b5611264bab2d6b3229737a1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.0000000037252899
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c7a1bee5b5611264bab2d6b3229737a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -35192,7 +35204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c7a1bee5b5611264bab2d6b3229737a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -11.497
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c7a1bee5b5611264bab2d6b3229737a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

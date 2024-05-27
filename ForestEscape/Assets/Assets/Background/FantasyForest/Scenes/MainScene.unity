@@ -1242,7 +1242,7 @@ MonoBehaviour:
   clearPopUp: {fileID: 448703213}
   player: {fileID: 375284525}
   camera: {fileID: 1136385244}
-  goalTime: 10
+  goalTime: 300
 --- !u!4 &59799573
 Transform:
   m_ObjectHideFlags: 0

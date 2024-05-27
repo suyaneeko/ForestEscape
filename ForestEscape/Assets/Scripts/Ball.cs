@@ -75,25 +75,11 @@ public class Ball : MonoBehaviour
         return p;
     }
 
-    public void SetPosition(Vector3 pos)
-    {
-
-    }
-
-    public void ThrowBall()
-    {
-
-    }
-
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Monster"))
         {
             dieTimer = 3f;
         }
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
     }
 }

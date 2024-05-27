@@ -49,9 +49,8 @@ public class CombatManager : MonoBehaviour
         get
         {
             if (null == instance)
-            {
                 return null;
-            }
+
             return instance;
         }
     }
@@ -145,9 +144,7 @@ public class CombatManager : MonoBehaviour
         else
         {
             if (deadNum > 0)
-            {
                 StartCoroutine(MonsterDelay());
-            }
             else
                 BallStart();
         }

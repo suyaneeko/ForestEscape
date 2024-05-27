@@ -18,6 +18,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private GameObject ballPrefab;
     [SerializeField] private GameObject ballThrowUI;
+    [SerializeField] private GameObject NoMonsterUI;
     [SerializeField] private TextMeshProUGUI ballTimerText;
     [SerializeField] private Bat bat;
 
@@ -30,6 +31,7 @@ public class CombatManager : MonoBehaviour
     private float ballThrowTimer = 0f;
     private CombatInfo curCombat;
     private Vector3 monsterPos;
+    private Quaternion monsterRot; 
 
     void Awake()
     {
@@ -102,7 +104,11 @@ public class CombatManager : MonoBehaviour
         monsterPos = pos + fowardVec * 1.1f;
         monsterPos.y += 0.3f;
 
-        Instantiate(monsters[(int)combatInfo.monsterID], monsterPos, Quaternion.identity);
+        // 타겟을 향하는 방향을 계산
+        Vector3 directionToTarget = pos - monsterPos;
+        monsterRot = Quaternion.LookRotation(directionToTarget);
+
+        Instantiate(monsters[(int)combatInfo.monsterID], monsterPos, monsterRot);
         Vector3 newTarget = pos + fowardVec * 2f;
         newTarget.y += 1f;
         bat.SetTartget(newTarget);
@@ -123,9 +129,12 @@ public class CombatManager : MonoBehaviour
         curCombat.monsterNum -= deadNum;
         if (curCombat.monsterNum == 0)
         {
-            // 전투 끝남
-            Debug.Log("End Game");
-            player.EnableControl();
+            if(deadNum != 0)
+            {
+                // 전투 끝남
+                NoMonsterUI.SetActive(true);
+                StartCoroutine(CombatEndDelay());
+            }
         }
         else
         {
@@ -141,7 +150,15 @@ public class CombatManager : MonoBehaviour
     IEnumerator MonsterDelay()
     {
         yield return new WaitForSeconds(1f);
-        Instantiate(monsters[(int)curCombat.monsterID], monsterPos, Quaternion.identity);
+
+        Instantiate(monsters[(int)curCombat.monsterID], monsterPos, monsterRot);
         BallStart();
+    }
+
+    IEnumerator CombatEndDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        NoMonsterUI.SetActive(false);
+        player.EnableControl();
     }
 }

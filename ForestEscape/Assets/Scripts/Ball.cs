@@ -89,7 +89,7 @@ public class Ball : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Monster"))
         {
-            dieTimer = 0f;
+            dieTimer = 3f;
         }
     }
 

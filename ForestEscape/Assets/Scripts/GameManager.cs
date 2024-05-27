@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject timePopUp;
     [SerializeField] private GameObject ClearPopUp;
     [SerializeField] private GameObject player;
+    [SerializeField] private MainCamera camera;
     [SerializeField] private float goalTime = 60f;
     private float timer = 0f;
 
@@ -47,7 +48,6 @@ public class GameManager : MonoBehaviour
         timePopUp.SetActive(false);
         timeText.text = goalTime.ToString();
         initPlayerPos = player.transform.position;
-        Debug.Log(initPlayerPos);
         initPlayerRot = player.transform.rotation;
     }
 
@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
 
     public void ReStart()
     {
+        camera.SetToInitPos();
         ClearPopUp.SetActive(false);
         timeText.gameObject.SetActive(true);
         timePopUp.SetActive(false);
@@ -82,6 +83,7 @@ public class GameManager : MonoBehaviour
         timeCheck = true;
         timer = 0f;
         timeText.text = goalTime.ToString();
+        timeText.color = Color.white;
     }
 
     public void GameClear()

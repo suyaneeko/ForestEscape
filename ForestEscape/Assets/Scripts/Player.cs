@@ -99,6 +99,7 @@ public class Player : MonoBehaviour
         playerAnims[(int)PLAYERANIM.BATTING].SetActive(false);
         playerAnims[(int)PLAYERANIM.RUNNING].SetActive(false);
         playerAnims[(int)PLAYERANIM.DISAPPOINT].SetActive(false);
+        playerAnims[(int)PLAYERANIM.HAPPY].SetActive(false);
 
         switch (eState)
         {
